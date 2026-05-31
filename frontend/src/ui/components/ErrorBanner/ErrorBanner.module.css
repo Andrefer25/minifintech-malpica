@@ -1,0 +1,25 @@
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-error-soft);
+  border: 1px solid var(--color-error);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.icon {
+  color: var(--color-error);
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.message {
+  flex: 1;
+  font-size: var(--font-size-sm);
+}
+
+.action {
+  flex-shrink: 0;
+}

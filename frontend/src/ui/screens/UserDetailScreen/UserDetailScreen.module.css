@@ -1,0 +1,169 @@
+.pageTop {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  color: var(--color-text);
+}
+
+.pageTitle {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: var(--line-tight);
+  color: var(--color-text);
+}
+
+.detailGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .detailGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+    align-items: start;
+  }
+}
+
+.kvList {
+  display: flex;
+  flex-direction: column;
+}
+
+.kv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  gap: var(--space-3);
+  padding: 11px 0;
+  border-bottom: 1px solid var(--color-border-soft, var(--color-border));
+}
+
+.kv:last-child {
+  border-bottom: none;
+}
+
+.kvLabel {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.kvValue {
+  color: var(--color-text);
+  font-weight: 500;
+  text-align: right;
+  word-break: break-all;
+}
+
+.mono {
+  font-family: var(--font-mono, monospace);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.green {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.txList {
+  display: flex;
+  flex-direction: column;
+}
+
+.txItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-border-soft, var(--color-border));
+  text-decoration: none;
+  color: inherit;
+}
+
+.txItem:last-child {
+  border-bottom: none;
+}
+
+.txItem:hover .txId {
+  color: var(--color-text);
+}
+
+.txLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.txDesc {
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-text);
+}
+
+.txIn {
+  color: var(--color-text);
+}
+
+.txOut {
+  color: var(--color-text);
+}
+
+.txMiddle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.txAmount {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  font-variant-numeric: tabular-nums;
+}
+
+.txAmountIn {
+  color: var(--color-primary);
+}
+
+.txAmountOut {
+  color: var(--color-error);
+}
+
+.txDate {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}

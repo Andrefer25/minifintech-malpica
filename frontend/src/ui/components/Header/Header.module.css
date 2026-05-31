@@ -1,0 +1,114 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 var(--space-4);
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+}
+
+.brandDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--color-primary);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  cursor: pointer;
+}
+.iconBtn:hover {
+  background: var(--color-card-hover);
+}
+
+.ping {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+.iconBtn {
+  position: relative;
+}
+
+.userChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 12px 5px 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-card);
+}
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1f3b34, #0d2722);
+  border: 1px solid var(--color-primary);
+  display: grid;
+  place-items: center;
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+.userName {
+  font-size: 13px;
+  font-weight: 500;
+}
+.caret {
+  color: var(--color-text-subtle);
+}
+
+.createBtnWrap {
+  display: inline-flex;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 0 var(--space-6);
+    gap: var(--space-6);
+    height: var(--header-height);
+  }
+}

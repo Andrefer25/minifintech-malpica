@@ -1,0 +1,77 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.event {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  left: calc(-1 * var(--space-5) + 2px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-card);
+  border: 2px solid var(--color-text-muted);
+}
+
+.dotSuccess {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+.dotWarning {
+  border-color: var(--color-warning);
+  background: var(--color-warning);
+}
+.dotError {
+  border-color: var(--color-error);
+  background: var(--color-error);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.labelFuture {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.time {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.reason {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-top: 2px;
+  font-style: italic;
+}

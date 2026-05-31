@@ -1,0 +1,84 @@
+:root {
+  /* Colors — Belo palette */
+  --color-bg: #0a0a0a;
+  --color-surface: #121212;
+  --color-card: #1a1a1a;
+  --color-card-hover: #1e1e1e;
+  --color-border: #2a2a2a;
+  --color-border-strong: #3a3a3a;
+
+  --color-primary: #00ffb2;
+  --color-primary-hover: #00d998;
+  --color-primary-glow: #33ffc4;
+
+  --color-warning: #f5b942;
+  --color-warning-soft: rgba(245, 185, 66, 0.12);
+  --color-error: #ff5d5d;
+  --color-error-soft: rgba(255, 93, 93, 0.12);
+  --color-info: #3b82f6;
+  --color-info-soft: rgba(59, 130, 246, 0.12);
+  --color-success: #00ffb2;
+  --color-success-soft: rgba(0, 255, 178, 0.12);
+
+  --color-text: #ffffff;
+  --color-text-muted: #a0a0a0;
+  --color-text-subtle: #6b6b6b;
+  --color-text-on-primary: #0a0a0a;
+
+  /* Spacing scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+
+  --line-tight: 1.2;
+  --line-normal: 1.5;
+
+  /* Shadows */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --shadow-focus: 0 0 0 3px rgba(0, 255, 178, 0.25);
+
+  /* Layout */
+  --header-height: 56px;
+  --bottom-nav-height: 64px;
+  --content-max-width: 1200px;
+  --sidebar-width: 224px;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Z-index */
+  --z-header: 50;
+  --z-bottom-nav: 50;
+  --z-modal: 100;
+  --z-toast: 200;
+}

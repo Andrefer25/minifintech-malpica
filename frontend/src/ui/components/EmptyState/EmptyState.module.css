@@ -1,0 +1,37 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-10) var(--space-5);
+  gap: var(--space-3);
+  color: var(--color-text-muted);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.description {
+  font-size: var(--font-size-sm);
+  max-width: 320px;
+}
+
+.actions {
+  margin-top: var(--space-3);
+}

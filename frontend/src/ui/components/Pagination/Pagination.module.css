@@ -1,0 +1,111 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+}
+
+.info {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageBtn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--duration-fast) var(--easing), color var(--duration-fast) var(--easing);
+}
+
+.pageBtn:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  font-weight: 700;
+}
+
+.active:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text-on-primary);
+}
+
+.ellipsis {
+  min-width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-sm);
+}
+
+.compactRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sizeLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+.sizeSelect {
+  height: 36px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  color-scheme: light;
+  transition: border-color var(--duration-fast) var(--easing);
+}
+
+.sizeSelect option {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.sizeSelect:hover {
+  border-color: var(--color-border-strong);
+}
+
+.sizeSelect:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
