@@ -3,7 +3,44 @@
 Este documento explica las principales decisiones de diseño y arquitectura que tomé durante el desarrollo de la plataforma, tanto en el backend como en el frontend. La intención es que cualquier persona que lea el código pueda entender no solo el _qué_, sino el _por qué_.
 
 ---
+```mermaid
+flowchart LR
 
+    Operator[Operador]
+
+    subgraph Usuarios
+        UC_GetUsers[Get Users]
+        UC_GetUser[Get User]
+        UC_GetUserBalanceHistory[Get User Balance History]
+    end
+
+    subgraph Transacciones
+        UC_CreateTransaction[Create Transaction]
+        UC_GetTransactions[Get Transactions]
+        UC_GetTransaction[Get Transaction]
+        UC_ApproveTransaction[Approve Transaction]
+        UC_RejectTransaction[Reject Transaction]
+        UC_GetTransactionStatusHistory[Get Transaction Status History]
+    end
+
+    subgraph Dashboard
+        UC_GetDashboardStats[Get Dashboard Stats]
+    end
+
+    Operator --> UC_GetUsers
+    Operator --> UC_GetUser
+    Operator --> UC_GetUserBalanceHistory
+
+    Operator --> UC_CreateTransaction
+    Operator --> UC_GetTransactions
+    Operator --> UC_GetTransaction
+    Operator --> UC_ApproveTransaction
+    Operator --> UC_RejectTransaction
+    Operator --> UC_GetTransactionStatusHistory
+
+    Operator --> UC_GetDashboardStats
+```
+---
 ## Backend
 
 ### Framework: Fastify
