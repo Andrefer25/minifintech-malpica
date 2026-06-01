@@ -69,6 +69,8 @@ Docker Compose levanta PostgreSQL, ejecuta las migraciones pendientes e inicia e
 | Swagger UI | `http://localhost:3000/docs` |
 | Health check | `http://localhost:3000/health` |
 
+> El puerto del backend se define en `backend/.env`. Por defecto es `3000`.
+
 ### Paso 4 — Iniciar el frontend
 
 En una terminal separada, elegir una de las dos opciones:
