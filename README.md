@@ -33,7 +33,7 @@ cd minifintech-malpica
 
 ### Paso 2 — Setup inicial
 
-Un único comando configura todo el entorno: variables de entorno, dependencias, build del frontend e imágenes Docker.
+Un único comando configura todo el entorno: variables de entorno, dependencias, build del frontend e imágenes Docker. Es necesario tener Docker inicializado.
 
 ```bash
 # Git Bash
