@@ -27,7 +27,7 @@ Para documentación detallada de cada módulo ver [`backend/README.md`](./backen
 ### Paso 1 — Clonar el repositorio
 
 ```bash
-git clone <url-del-repo>
+git clone https://github.com/Andrefer25/minifintech-malpica
 cd minifintech-malpica
 ```
 
