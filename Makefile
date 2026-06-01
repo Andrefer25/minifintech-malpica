@@ -77,7 +77,7 @@ back-reset-db: ## [back] Elimina el volumen de datos y reinicia (re-ejecuta migr
 
 .PHONY: front-install
 front-install: ## [front] npm install
-	npm install --prefix $(FRONTEND_DIR)
+	cd $(FRONTEND_DIR) && npm install
 
 .PHONY: front-env
 front-env: ## [front] Copia .env.example -> .env (no sobreescribe si ya existe)
@@ -85,23 +85,23 @@ front-env: ## [front] Copia .env.example -> .env (no sobreescribe si ya existe)
 
 .PHONY: front-dev
 front-dev: ## [front] Servidor de desarrollo con HMR (Vite)
-	npm run dev --prefix $(FRONTEND_DIR)
+	cd $(FRONTEND_DIR) && npm run dev
 
 .PHONY: front-build
 front-build: ## [front] Build de producción en dist/
-	npm run build --prefix $(FRONTEND_DIR)
+	cd $(FRONTEND_DIR) && npm run build
 
 .PHONY: front-preview
 front-preview: ## [front] Sirve el build de producción localmente
-	npm run preview --prefix $(FRONTEND_DIR)
+	cd $(FRONTEND_DIR) && npm run preview
 
 .PHONY: front-test
 front-test: ## [front] Ejecuta la suite de tests (Vitest)
-	npm test --prefix $(FRONTEND_DIR)
+	cd $(FRONTEND_DIR) && npm test
 
 .PHONY: front-coverage
 front-coverage: ## [front] Tests con reporte de cobertura
-	npm run test:cov --prefix $(FRONTEND_DIR)
+	cd $(FRONTEND_DIR) && npm run test:cov
 
 # -----------------------------------------------------------------------------
 #  AYUDA
