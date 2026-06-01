@@ -18,6 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   const reactId = useId();
   const inputId = id ?? reactId;
   const messageId = `${inputId}-msg`;
+  const helpId = `${inputId}-help`;
   return (
     <div className={cx(styles.field, containerClassName)}>
       {label && (
@@ -32,14 +33,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           id={inputId}
           className={cx(styles.input, className)}
           aria-invalid={Boolean(error) || undefined}
-          aria-describedby={error || help ? messageId : undefined}
+          aria-describedby={[error && messageId, help && helpId].filter(Boolean).join(' ') || undefined}
           {...rest}
         />
         {rightIcon && <span className={styles.icon}>{rightIcon}</span>}
       </div>
-      {(error || help) && (
-        <span id={messageId} className={cx(styles.help, error && styles.helpError)}>
-          {error ?? help}
+      {error && (
+        <span id={messageId} className={cx(styles.help, styles.helpError)}>
+          {error}
+        </span>
+      )}
+      {help && (
+        <span id={helpId} className={styles.help}>
+          {help}
         </span>
       )}
     </div>

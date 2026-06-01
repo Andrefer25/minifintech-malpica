@@ -36,14 +36,14 @@ export function CreateTransactionModal({
 
   const [originUserId, setOriginUserId] = useState('');
   const [destinationUserId, setDestinationUserId] = useState('');
-  const [amount, setAmount] = useState('');
+  const [amountDisplay, setAmountDisplay] = useState('');
   const [errors, setErrors] = useState<Errors>({});
 
   useEffect(() => {
     if (open) {
       setOriginUserId(defaultOriginUserId ?? '');
       setDestinationUserId('');
-      setAmount('');
+      setAmountDisplay('');
       setErrors({});
     }
   }, [open, defaultOriginUserId]);
@@ -56,8 +56,41 @@ export function CreateTransactionModal({
     [users, originUserId],
   );
 
-  const amountNumber = Number(amount);
-  const requiresApproval = Number.isFinite(amountNumber) && amountNumber > APPROVAL_THRESHOLD;
+  function parseAmountDisplay(display: string): number {
+    const normalized = display.replace(/\./g, '').replace(',', '.');
+    const n = parseFloat(normalized);
+    return Number.isNaN(n) ? 0 : n;
+  }
+
+  function handleAmountChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const raw = e.target.value;
+    // Dots are always thousands separators (auto-added by formatter) — strip them.
+    // Only comma is the decimal separator (es-AR convention).
+    const cleaned = raw.replace(/[^0-9,]/g, '');
+    if (errors.amount) setErrors((prev) => ({ ...prev, amount: undefined }));
+    if (cleaned === '') { setAmountDisplay(''); return; }
+
+    const commaIdx = cleaned.indexOf(',');
+    let intStr: string;
+    let decStr: string | undefined;
+
+    if (commaIdx >= 0) {
+      intStr = cleaned.slice(0, commaIdx);
+      decStr = cleaned.slice(commaIdx + 1).replace(/,/g, '');
+    } else {
+      intStr = cleaned;
+      decStr = undefined;
+    }
+
+    const intFormatted = intStr === ''
+      ? (decStr !== undefined ? '0' : '')
+      : intStr.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+    setAmountDisplay(decStr !== undefined ? `${intFormatted},${decStr}` : intFormatted);
+  }
+
+  const amountNumber = parseAmountDisplay(amountDisplay);
+  const requiresApproval = amountNumber > 0 && amountNumber > APPROVAL_THRESHOLD;
 
   function validate(): boolean {
     const next: Errors = {};
@@ -66,7 +99,7 @@ export function CreateTransactionModal({
     if (originUserId && destinationUserId && originUserId === destinationUserId) {
       next.destination = 'Origen y destino deben ser distintos';
     }
-    if (!amount || !Number.isFinite(amountNumber) || amountNumber <= 0) {
+    if (!amountDisplay || amountNumber <= 0) {
       next.amount = 'Ingresá un monto mayor a 0';
     } else if (origin && amountNumber > origin.balance) {
       next.amount = 'Saldo insuficiente';
@@ -124,7 +157,7 @@ export function CreateTransactionModal({
           placeholder="Buscar usuario…"
           users={users}
           value={originUserId}
-          onChange={(id) => { setOriginUserId(id); setDestinationUserId(''); }}
+          onChange={(id) => { setOriginUserId(id); setDestinationUserId(''); setErrors((prev) => ({ ...prev, origin: undefined, destination: undefined })); }}
           getSecondaryLabel={(u) => formatCurrency(u.balance)}
           error={errors.origin}
           disabled={usersQuery.isLoading}
@@ -134,19 +167,17 @@ export function CreateTransactionModal({
           placeholder="Buscar usuario…"
           users={destinationUsers}
           value={destinationUserId}
-          onChange={setDestinationUserId}
+          onChange={(id) => { setDestinationUserId(id); setErrors((prev) => ({ ...prev, destination: undefined })); }}
           error={errors.destination}
           disabled={usersQuery.isLoading || !originUserId}
         />
         <Input
           label="Monto"
-          type="number"
-          step="0.01"
-          min="0"
+          type="text"
           inputMode="decimal"
-          placeholder="0.00"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          placeholder="0,00"
+          value={amountDisplay}
+          onChange={handleAmountChange}
           error={errors.amount}
           help={origin ? `Saldo disponible: ${formatCurrency(origin.balance)}` : undefined}
           className={styles.amountInput}

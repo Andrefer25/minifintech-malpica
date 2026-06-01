@@ -33,8 +33,9 @@ COPY --from=builder /app/dist ./dist
 # Run as non-root
 USER node
 
-# Expose port
-EXPOSE 3000
+# Expose port (override with --build-arg PORT=XXXX)
+ARG PORT=3000
+EXPOSE ${PORT}
 
 # Start application
 CMD ["node", "dist/index.js"]
